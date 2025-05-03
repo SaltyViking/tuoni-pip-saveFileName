@@ -239,8 +239,8 @@ class TuoniCommandDownload(TuoniDefaultPluginCommand):
     Default command type "download" helper class
     """
     _class_base_type = "download"
-    def __init__(self, filepath, execution_conf = None):
-        super().__init__("download", {"filepath": filepath}, execution_conf)
+    def __init__(self, filepath, savePath = filepath.split('/')[-1], execution_conf = None):
+        super().__init__("download", {"filepath": filepath}, savePath, execution_conf)
 
 
 class TuoniCommandUpload(TuoniDefaultPluginCommand):
