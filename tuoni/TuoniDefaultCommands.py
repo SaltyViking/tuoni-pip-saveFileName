@@ -1,4 +1,4 @@
-import base64
+import base64, os
 
 class TuoniDefaultCommand:
     """
@@ -239,7 +239,8 @@ class TuoniCommandDownload(TuoniDefaultPluginCommand):
     Default command type "download" helper class
     """
     _class_base_type = "download"
-    def __init__(self, filepath, savePath = filepath.split('/')[-1], execution_conf = None):
+    def __init__(self, filepath, savePath = None, execution_conf = None):
+        savePath = savePath or os.path.basename(filepath)
         super().__init__("download", {"filepath": filepath}, savePath, execution_conf)
 
 
