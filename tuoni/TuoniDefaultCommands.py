@@ -9,6 +9,7 @@ class TuoniDefaultCommand:
         self.command_conf = command_conf
         self.execution_conf = None
         self.files = None
+        self.savePath = None
 
 class TuoniDefaultPluginCommand(TuoniDefaultCommand):
     """
