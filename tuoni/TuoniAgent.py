@@ -38,7 +38,7 @@ class TuoniAgent:
         self.recentListeners = conf["recentListeners"]
         self._fill_available_commands(conf["availableCommandTemplates"])
 
-    def send_command(self, command_type, command_conf=None, execution_conf = None, files = None):
+    def send_command(self, command_type, command_conf=None, savePath = None, execution_conf = None, files = None):
         """
         Send command to agent.
 
@@ -76,6 +76,8 @@ class TuoniAgent:
             command_conf = command_type.command_conf
             execution_conf = command_type.execution_conf
             files = command_type.files
+            if savePath:
+                savePath = command_type.savePath
             command_type = command_type.command_type
         if isinstance(command_type, TuoniAlias):
             command_type = command_type.alias_id
